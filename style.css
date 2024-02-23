@@ -2,34 +2,61 @@ html {
     font-family: sans-serif;
 }
 body {
-    margin: 0px;
+    margin: 0;
+    padding: 20px; /* Add padding to body to not have content stick to edges */
 }
 h1, h2, h3, h4, h5, h6 {
-    margin: 25px 0 15px 0;
+    margin: 10px 0; /* Reduced margin for a tighter layout */
 }
 h2 {
     font-size: 17px;
     font-weight: bold;
 }
 #wrapper {
-    width: 80%;
-    margin: 0 auto;
+    width: 400px; /* Adjust width to match image */
+    border: 1px solid #000; /* Assuming there's a border around the form */
+    padding: 10px; /* Add padding inside the wrapper */
+    font-family: sans-serif;
 }
 .row {
     width: 100%;
-    display: inline-block;
-    margin-bottom: 5px;
+    overflow: hidden; /* Clear the float */
+    margin-bottom: 10px; /* Add some space between rows */
+}
+.lbltitle, /* Correct the class name from .lbltile to .lbltitle */
+.lbloutput {
+    float: left;
+    padding: 5px 0; /* Add padding for vertical alignment */
 }
 .lbltitle {
-    width: 20%;
-    float: left;
+    width: 30%; /* Adjust width to give more space for the label */
 }
-.lblinput, .lbloutput {
-    width: 80%;
-    float: left;
+.lbloutput {
+    width: 70%; /* Adjust width to fill the rest of the space */
 }
 .submit {
     padding: 10px 0;
     text-align: center;
-    width: 50%;
+}
+.input-field { /* Assuming you have an input field class */
+    width: 60%; /* Set the width of input fields */
+    margin: 0 20%; /* Center the input fields */
+}
+
+.contact-info {
+    margin-top: 20px; /* space from the top or previous content */
+}
+
+.name {
+    font-weight: bold; /* make the name bold */
+}
+
+.email-label,
+.email {
+    color: #0000EE; /* standard link color */
+    font-size: 0.9em; /* smaller font size for the email and label */
+}
+
+.email {
+    text-decoration: underline; /* underline the email to mimic a mailto link */
 }
