@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>STUDENT RESULT RATING</title>
     <meta charset="UTF-8">
-    <meta name="author" content="trendemy.com"/>
-   <link href="style.css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>this is exercise by Nguyen Huu Tai</title>
 </head>
 <body>
     <div id="wrapper">
-        <h2>CLASSIFICATION OF STUDENT RESULT</h2>
+        <h2>CLASSIFICATION OF THE RESULT</h2>
         <form action="#" method="post">
             <!-- Mathematics -->
             <div class="row">
                 <div class="lbltitle">
-                    <label> Math scores</label>
+                    <label>Math scores</label>
                 </div>
                 <div class="lblinput">
                     <input type="number" name="math"
-                        value="<?php echo isset($_POST['math']) ? $_POST['math'] : ""; ?>"/>
+                         value="<?php echo isset($_POST['math']) ? $_POST['math'] : ""; ?>"/>
                 </div>
             </div>
             <!-- Physics -->
@@ -26,101 +26,88 @@
                     <label>Physics scores</label>
                 </div>
                 <div class="lblinput">
-                    <input type="number" name="physics"
-                         value="<?php echo isset($_POST['physics']) ? $_POST['physics'] : ""; ?>" />
+                    <input type="number" name="Physics"
+                         value="<?php echo isset($_POST['Physics']) ? $_POST['Physics'] : ""; ?>"/>
                 </div>
             </div>
             <!-- Chemistry -->
             <div class="row">
                 <div class="lbltitle">
-                    <label> Chemistry scores</label>
+                    <label>Chemistry scores</label>
                 </div>
                 <div class="lblinput">
-                    <input type="number" name="Chemistry" 
-                        value="<?php echo isset($_POST['Chemistry']) ? $_POST['Chemistry'] : ""; ?>"/>
+                    <input type="number" name="Chemistry"
+                         value="<?php echo isset($_POST['Chemistry']) ? $_POST['Chemistry'] : ""; ?>"/>
                 </div>
             </div>
             <div class="row">
                 <div class="lbltitle">
-                    <label> Select an area</label>
+                    <label>Select an area</label>
                 </div>
                 <div class="lblinput">
                     <select name="area">
-                        <option value="0" selected>-- Select an area --</option>
-                        <option value="1" <?php echo isset($_POST['area'])==1 ? "selected" : "" ?>> Area 1</option>
-                        <option value="2" <?php echo isset($_POST['area'])==2 ? "selected" : "" ?>> Area 2</option>
-                        <option value="3" <?php echo isset($_POST['area'])==3 ? "selected" : "" ?>> Area 3</option>
-                        <option value="4" <?php echo isset($_POST['area'])==4 ? "selected" : "" ?>> Area 4</option>
-                        <option value="5" <?php echo isset($_POST['area'])==5 ? "selected" : "" ?>> Area 5</option>
+                        <option value="0">-- Select an area --</option>
+                        <option value="1" <?php echo isset($_POST['area'])==1 ? "selected" : "" ?>>Area 1</option>
+                        <option value="2" <?php echo isset($_POST['area'])==2 ? "selected" : ""; ?>>Area 2</option>
+                        <option value="3" <?php echo isset($_POST['area'])==3 ? "selected" : ""; ?>>Area 3</option>
+                        <option value="4" <?php echo isset($_POST['area'])==4 ? "selected" : ""; ?>>Area 4</option>
+                        <option value="5" <?php echo isset($_POST['area'])==5 ? "selected" : ""; ?>>Area 5</option>
                     </select>
                 </div>
             </div>
             <!-- Button Rating -->
             <div class="row">
                 <div class="submit">
-                    <input type="submit" name="btnsubmit" value="Ratings"/>
-                </div>           
+                    <input type="submit" name="btnsubmit" value="Rating"/>
+                </div>
             </div>
             <!-- Display results -->
             <div class="row">
-                <h2>Rating results</h2>
-            </div>
-            <div class="row">
-                <div class="lbltitle">
-                    <label> Total points</label>
-                </div>
+                <h2>Rating result</h2>
+                <label>Total Points</label>
                 <div class="lbloutput">
-                    <?php echo isset($_POST['btnsubmit']) ? $_POST['math'] 
-                        + $_POST['physics'] + $_POST['Chemistry'] : ""; ?>
+                    <?php echo isset($_POST['btnsubmit']) ? $_POST['math'] + $_POST['Physics'] + $_POST['Chemistry'] : ""; ?>
                 </div>
-                <div class="lbltitle">
-                    <label> Rating</label>
-                </div>
+                <label>Ratings</label>
                 <div class="lbloutput">
                     <?php if(isset($_POST['btnsubmit'])){
-                        $totalpoints = $_POST['math'] + $_POST['physics'] + $_POST['Chemistry'];
-                            if($totalpoints >= 24) echo "Very Good";
-                            elseif($totalpoints >= 21) echo "Good";
-                            elseif($totalpoints >= 15) echo "Average";
-                            else echo "Weak";
+                        $total_ponts = $_POST['math'] + $_POST['Physics'] +$_POST['Chemistry'];
+                        if($total_ponts >= 24) echo "Very good";
+                        elseif($total_ponts >= 21) echo "Good";
+                        elseif($total_ponts >= 15) echo "Average";
+                        else echo "weak";   
+                    } ?>
+                </div>
+                <label>Priority points</label>
+                <div class="lbloutput">
+                    <?php if(isset($_POST['btnsubmit'])){
+                        $Priority_points = $_POST['area'];
+                        switch($Priority_points){
+                            case 0:
+                            case 4:
+                            case 5:
+                                echo "0";
+                                break;
+                            case 1:
+                            case 2:
+                                echo "5";
+                                break;
+                            case 3:
+                                echo "3";
+                                break;
+                            default:
+                                echo "0";
+                                break;
+                        }
                     } ?>
                 </div>
             </div>
-            <div class="row">
-                <div class="lbltitle">
-                    <label> Priority points</label>
-                </div>
-            </div>
-            <div class="lbloutput">
-                <?php if(isset($_POST['btnsubmit'])){
-                    $Priority_points = $_POST['area'];
-                    switch ($Priority_points) {
-                        case 0:
-                        case 4:
-                        case 5:
-                            echo "0";
-                            break;
-                        case 1:
-                        case 2:
-                            echo "5";
-                            break;
-                        case 3:
-                            echo "3";
-                            break;
-                        default:
-                            echo "0";
-                            break;
-                    }
-                } ?>
-            </div>
-        <div class="wrapper">   
-        <div class="name"> Nguyen Huu Tai</div>
+            
+            <div class="name">Nguyen Huu Tai</div>
             <div class="contact-info">
-                
                 <div class="email-lable">Contact information:</div>
                 <div class="email">taipro573@gmail.com</div>
             </div>
-        </div>
         </form>
     </div>
 </body>

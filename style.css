@@ -25,15 +25,29 @@ h2 {
 }
 .lbltitle, /* Correct the class name from .lbltile to .lbltitle */
 .lbloutput {
-    float: left;
-    padding: 5px 0; /* Add padding for vertical alignment */
+    display: flex;
+    flex-direction: column; /* Stack the children vertically */
+    align-items: flex-start; /* Align items to the start of the flex container */
+    padding: 5px 0; /* Keep the existing vertical padding */
+    width: 70%; /* Keep the existing width */
 }
+
+.lbloutput div {
+    margin-bottom: 10px; /* Add space between the child divs */
+}
+
+.lbloutput label {
+    font-weight: bold; /* Make the labels bold */
+    margin-right: 10px; /* Add some space between the label and the value */
+}
+
+  
+  
+
 .lbltitle {
     width: 30%; /* Adjust width to give more space for the label */
 }
-.lbloutput {
-    width: 70%; /* Adjust width to fill the rest of the space */
-}
+
 .submit {
     padding: 10px 0;
     text-align: center;
